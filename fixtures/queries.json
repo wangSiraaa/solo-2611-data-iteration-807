@@ -1,0 +1,86 @@
+[
+  {
+    "id": "range",
+    "where": {
+      "and": [
+        {
+          "ge": [
+            "k",
+            14
+          ]
+        },
+        {
+          "lt": [
+            "k",
+            30
+          ]
+        }
+      ]
+    },
+    "columns": [
+      "row_id",
+      "payload"
+    ]
+  },
+  {
+    "id": "nulls",
+    "where": {
+      "is_null": "k"
+    },
+    "columns": [
+      "row_id",
+      "kind"
+    ]
+  },
+  {
+    "id": "negated",
+    "where": {
+      "not": {
+        "eq": [
+          "kind",
+          "A"
+        ]
+      }
+    },
+    "columns": [
+      "row_id",
+      "k"
+    ]
+  },
+  {
+    "id": "or_missing_stats",
+    "where": {
+      "or": [
+        {
+          "eq": [
+            "kind",
+            "A"
+          ]
+        },
+        {
+          "gt": [
+            "amount",
+            160
+          ]
+        }
+      ]
+    },
+    "columns": [
+      "row_id",
+      "amount"
+    ]
+  },
+  {
+    "id": "no_hits",
+    "where": {
+      "gt": [
+        "k",
+        1000
+      ]
+    },
+    "columns": [
+      "row_id",
+      "payload"
+    ]
+  }
+]
